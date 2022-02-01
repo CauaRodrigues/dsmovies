@@ -1,4 +1,4 @@
-import Arrow from "assets/images/Arrow";
+import { ReactComponent as Arrow } from "assets/images/arrow.svg";
 import "./style.css";
 
 const Pagination = () => {
@@ -10,7 +10,7 @@ const Pagination = () => {
 				</button>
 				<p>{`${1} de ${3}`}</p>
 				<button className="dsmovie-pagination-button" disabled={false}>
-					<Arrow styleClass="dsmovie-flip-horizontal" />
+					<Arrow className="dsmovie-flip-horizontal" />
 				</button>
 			</div>
 		</div>
