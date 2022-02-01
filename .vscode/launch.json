@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DsmoviesApplication<dsmovies>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.devsuperior.dsmovies.DsmoviesApplication",
+            "projectName": "dsmovies",
+            "args": ""
+        }
+    ]
+}
