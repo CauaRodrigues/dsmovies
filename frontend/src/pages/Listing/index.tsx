@@ -1,9 +1,7 @@
+import Pagination from "components/Pagination";
+
 const Listing = () => {
-	return (
-		<div>
-			<h1>Listing</h1>
-		</div>
-	);
+	return <Pagination />;
 };
 
 export default Listing;
