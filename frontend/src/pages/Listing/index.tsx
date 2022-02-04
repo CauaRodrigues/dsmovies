@@ -1,40 +1,49 @@
-import MovieCard from "components/MovieCard";
 import Pagination from "components/Pagination";
+import { useEffect, useState } from "react";
+import { BASE_URL } from "utils/requests";
+import axios from "axios";
+import { MoviePage } from "types/movie";
+import MovieCard from "components/MovieCard";
 
 const Listing = () => {
-	return (
-		<>
-			<Pagination />
+  const [pageNumber, setPageNumber] = useState(0);
 
-			<div className="container">
-				<div className="row">
-					<div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-						<MovieCard />
-					</div>
+  const [page, setPage] = useState<MoviePage>({
+    content: [],
+    last: true,
+    totalPages: 0,
+    totalElements: 0,
+    size: 12,
+    number: 0,
+    first: true,
+    numberOfElements: 0,
+    empty: true,
+  });
 
-					<div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-						<MovieCard />
-					</div>
+  useEffect(() => {
+    axios
+      .get(`${BASE_URL}/movies?size=12&page=${pageNumber}&sort=title`)
+      .then((response) => {
+        const data = response.data as MoviePage;
+        setPage(data);
+      });
+  }, [pageNumber]);
 
-					<div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-						<MovieCard />
-					</div>
+  return (
+    <>
+      <Pagination />
 
-					<div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-						<MovieCard />
-					</div>
-
-					<div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-						<MovieCard />
-					</div>
-
-					<div className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-						<MovieCard />
-					</div>
-				</div>
-			</div>
-		</>
-	);
+      <div className="container">
+        <div className="row">
+          {page.content.map((movie) => (
+            <div key={movie.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
+              <MovieCard movie={movie} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Listing;
