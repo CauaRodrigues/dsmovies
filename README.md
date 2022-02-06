@@ -7,4 +7,4 @@ O projeto consiste em uma aplicação web que permite a avalição de diversos f
 Link: https://dsmovies-akamatu.netlify.app/
 
 <br/>
-<h1 align="center">🚧 Projeto em Andamento 🚧</h1>
+<h1 align="center">🎉 Projeto Finalizado 🎉</h1>
